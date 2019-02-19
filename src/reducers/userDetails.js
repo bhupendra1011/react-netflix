@@ -1,13 +1,11 @@
 import { FETCH_USER_DETAILS } from "../actions/type";
 
-const reducer = (state = null, action) => {
+const reducer = (state = {}, action) => {
   switch (action.type) {
     case FETCH_USER_DETAILS:
       return {
-        ...{
-          ...action.payload.data,
-          isLoading: false
-        }
+        isLoading: false,
+        ...action.payload.data
       };
     default:
       return state;
